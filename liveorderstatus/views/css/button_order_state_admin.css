@@ -1,0 +1,36 @@
+.order-status-update {
+    margin: 20px;
+    text-align: center;
+}
+
+.order-status-update label {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #7f8c8d;
+}
+
+.order-status-update select {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #ecf0f1;
+    margin-right: 10px;
+}
+
+.order-status-update .btn {
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.order-status-update .btn:hover {
+    background: #2980b9;
+}

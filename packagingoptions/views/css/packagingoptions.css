@@ -1,0 +1,115 @@
+.packaging-options {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.packaging-options h4 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.packaging-options form {
+    display: flex; /* Pone los elementos a la par */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 20px; /* Espacio entre tarjetas */
+    flex-wrap: wrap; /* Permite que se acomoden una debajo de otra en pantallas pequeñas */
+}
+
+.packaging-card {
+    flex: 0 1 300px; /* Define un tamaño máximo y adaptable */
+    position: relative;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.packaging-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.packaging-card input[type="radio"] {
+    display: none;
+}
+
+.packaging-card input[type="radio"]:checked + .packaging-content {
+    background: linear-gradient(135deg, #eaffea, #ffffff);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    position: relative;
+}
+
+.packaging-card input[type="radio"]:checked + .packaging-content::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px; /* Ancho del borde */
+    background-color: #4CAF50;
+    border-radius: 10px 0 0 10px; /* Bordes redondeados */
+}
+
+.packaging-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribuye el contenido verticalmente */
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    height: 100%; /* Mantiene el contenido alineado con la tarjeta */
+}
+
+
+.icon-container img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.packaging-card:hover .icon-container img {
+    transform: rotate(-5deg) scale(1.1);
+}
+
+.text-container {
+    flex: 1; /* Ocupa el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    text-align: center;
+    margin-top: 10px; /* Espacio superior */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.text-container h5 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.text-container p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.packaging-options form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}

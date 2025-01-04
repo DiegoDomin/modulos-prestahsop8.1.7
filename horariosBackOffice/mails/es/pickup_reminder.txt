@@ -1,0 +1,7 @@
+Hola,
+
+Este es un recordatorio de tu pedido:
+- Día: {pickup_day}
+- Hora: {pickup_time}
+
+Gracias por elegirnos.

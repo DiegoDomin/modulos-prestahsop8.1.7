@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.order-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+.status-text {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.progress-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 20px auto;
+    max-width: 100%; /* Ajusta al 100% del contenedor */
+    padding: 10px;
+    gap: 10px; /* Espaciado entre elementos */
+}
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    text-align: center;
+    min-width: 120px; /* Asegura un tamaño mínimo en pantallas pequeñas */
+
+}
+.progress-step .step-icon-container {
+    background: #d9e3f0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4A90E2;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative; /* Asegura una alineación precisa */
+    z-index: 1;
+}
+.progress-step.active .step-icon-container {
+    background: #FFD700; /* Fondo amarillo predeterminado */
+    color: #fff;
+    animation: pulse 1.5s infinite alternate;
+}
+
+#step-delivered .step-icon-container.active {
+    background: #2E7D32; /* Verde oscuro */
+    color: #fff;
+    animation: none; /* Quita cualquier efecto de pulso */
+    box-shadow: none;
+}
+.progress-step.completed .step-icon-container {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: #fff;
+    animation: bounceIn 0.5s ease;
+
+}
+
+
+
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: #e6e9ef;
+    position: relative;
+    top: 25px; /* Centra la barra con respecto a los círculos */
+    max-width: 150px; /* Limita el ancho en pantallas grandes */
+
+}
+
+.progress-bar.completed {
+    background: linear-gradient(90deg, #4CAF50, #45A049);
+    animation: fillBar 0.6s ease forwards;
+}
+.step-label {
+    margin-top: 8px; /* Reduce el espacio entre el círculo y el texto */
+    font-size: 0.9rem;
+    color: #666;
+    position: relative;
+    top: -10px; /* Ajusta el texto para centrarlo mejor */
+}
+
+/* Animación al completar */
+
+
+
+.step-icon-container.completed {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: #fff; /* Cambiar el color del icono si es necesario */
+    position: relative; /* Para el pseudo-elemento */
+        transition: background-color 0.5s ease-in-out;
+
+}
+.step-icon-container.completed::after {
+    content: '✔'; /* Checkmark */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Larger checkmark for visibility */
+    font-weight: bold;
+    color: #fff; /* White checkmark */
+    position: absolute;
+    width: 100%; /* Full size to ensure perfect alignment */
+    height: 100%; 
+    top: 0;
+    left: 0;
+    transform: none; /* No need for translate anymore */
+    animation: fadeInCheck 0.5s ease forwards;
+    z-index: 2;
+}
+
+.step-icon-container.completed .step-icon {
+    visibility: hidden; 
+}
+.step-icon-container.active {
+    background: #FFD700;
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+    animation: pulse 1s infinite alternate;
+}
+.progress-step.completed .step-icon-container {
+    background: #2E7D32; /* Verde oscuro, consistente */
+    color: #fff; /* Ícono blanco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+       /* Estilos del Modal */
+    .modal {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    }
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        width: 50%;
+        max-width: 400px;
+    }
+    .modal-content h2 {
+        color: #4CAF50;
+        margin-bottom: 15px;
+    }
+    .modal-content p {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .btn-primary {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+        background-color: #45a049;
+    }
+
+/* Keyframes for Animations */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInCheck {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes flashGreen {
+    0% {
+        background-color: #4CAF50;
+        opacity: 0.3;
+    }
+    50% {
+        background-color: #45A049;
+        opacity: 1;
+    }
+    100% {
+        background-color: #4CAF50;
+        opacity: 0.3;
+    }
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    margin-top: 15px;
+}
+
+
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .progress-container {
+        flex-direction: column; /* Los pasos se apilan verticalmente */
+        gap: 20px; /* Espaciado entre pasos */
+    }
+
+    .progress-step {
+        flex-direction: row; /* Icono y etiqueta se colocan en línea */
+        justify-content: flex-start; /* Alinea al principio */
+        align-items: center;
+        min-width: unset; /* Quita el ancho mínimo */
+    }
+
+    .step-icon-container {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        margin-right: 10px; /* Espacio entre icono y etiqueta */
+    }
+
+    .step-label {
+        font-size: 0.8rem;
+        text-align: left;
+        margin-top: 0; /* Ajusta el texto al centro */
+    }
+
+    .progress-bar {
+        display: none; /* Oculta la barra entre pasos */
+    }
+}
+
+/* Ajustes para pantallas extra pequeñas */
+@media screen and (max-width: 480px) {
+    .order-title {
+        font-size: 1.5rem; /* Reduce el tamaño del título */
+    }
+
+    .step-icon-container {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem; /* Reduce el tamaño de los iconos */
+    }
+
+    .step-label {
+        font-size: 0.75rem;
+    }
+}
